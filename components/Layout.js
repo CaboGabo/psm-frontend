@@ -42,18 +42,21 @@ export default class Layout extends React.Component {
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
 
-        <div className="content">
+        <div className="title">
           <h1>{title}</h1>
-          {children}
         </div>
+
+        {children}
         <Footer />
 
         <style jsx>
           {`
-            .content {
+            .title h1 {
               margin-top: 64px;
+              text-align: center;
+              font-size: 23px;
+              color: #521751;
             }
-
             .page {
               height: 100%;
             }
@@ -69,6 +72,7 @@ export default class Layout extends React.Component {
             }
 
             html {
+              margin: 0;
               height: 100%;
             }
           `}

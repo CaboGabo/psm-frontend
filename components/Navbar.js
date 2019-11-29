@@ -1,4 +1,5 @@
 import DrawerToggleButton from "./DrawerToggleButton";
+import Link from "next/link";
 
 export default class Navbar extends React.Component {
   render() {
@@ -9,19 +10,27 @@ export default class Navbar extends React.Component {
             <DrawerToggleButton click={this.props.drawerClickHandler} />
           </div>
           <div className="logo">
-            <a href="/">The logo</a>
+            <Link href="/">
+              <a>The logo</a>
+            </Link>
           </div>
           <div className="spacer" />
           <div className="navigation-items">
             <ul>
               <li>
-                <a href="/">¿Quiénes somos?</a>
+                <Link href="/about">
+                  <a>¿Quiénes somos?</a>
+                </Link>
               </li>
               <li>
-                <a href="/">Productos</a>
+                <Link href="/products">
+                  <a>Productos</a>
+                </Link>
               </li>
               <li>
-                <a href="/">Contacto</a>
+                <Link href="/contact">
+                  <a>Contacto</a>
+                </Link>
               </li>
             </ul>
           </div>

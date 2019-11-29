@@ -4,16 +4,20 @@ export default class extends React.Component {
     return (
       <React.Fragment>
         <Layout
-          metatitle="metatitle"
+          metatitle="Promotora de Sillas y Muebles"
           title="Promotora de Sillas y Muebles"
           description="metadescription"
         >
-          <p>Página principal</p>
+          <div class="content"></div>
         </Layout>
 
         <style jsx>{`
           p {
             color: blue;
+          }
+
+          .content {
+            display: grid;
           }
         `}</style>
       </React.Fragment>

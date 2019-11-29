@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default class SideDrawer extends React.Component {
   render() {
     let drawerClasses = "side-drawer";
@@ -8,13 +10,19 @@ export default class SideDrawer extends React.Component {
       <nav className={drawerClasses}>
         <ul>
           <li>
-            <a href="/">¿Quiénes somos?</a>
+            <Link href="/about">
+              <a>¿Quiénes somos?</a>
+            </Link>
           </li>
           <li>
-            <a href="/">Productos</a>
+            <Link href="/products">
+              <a>Productos</a>
+            </Link>
           </li>
           <li>
-            <a href="/">Contacto</a>
+            <Link href="/contact">
+              <a>Contacto</a>
+            </Link>
           </li>
         </ul>
 
