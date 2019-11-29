@@ -15,7 +15,7 @@ export default class SideDrawer extends React.Component {
             </Link>
           </li>
           <li>
-            <Link href="/products">
+            <Link href="/categories">
               <a>Productos</a>
             </Link>
           </li>

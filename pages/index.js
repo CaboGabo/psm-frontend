@@ -8,7 +8,7 @@ export default class extends React.Component {
           title="Promotora de Sillas y Muebles"
           description="metadescription"
         >
-          <div class="content"></div>
+          <div className="content"></div>
         </Layout>
 
         <style jsx>{`
