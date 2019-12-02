@@ -18,17 +18,17 @@ export default class Navbar extends React.Component {
           <div className="navigation-items">
             <ul>
               <li>
-                <Link href="/about">
+                <Link href="/quienes-somos">
                   <a>¿Quiénes somos?</a>
                 </Link>
               </li>
               <li>
-                <Link href="/categories">
+                <Link href="/categorias">
                   <a>Productos</a>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
+                <Link href="/contacto">
                   <a>Contacto</a>
                 </Link>
               </li>
@@ -42,6 +42,7 @@ export default class Navbar extends React.Component {
             background: #521751;
             height: 56px;
             top: 0;
+            z-index: 50;
           }
 
           .logo {

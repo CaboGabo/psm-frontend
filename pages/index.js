@@ -1,4 +1,6 @@
 import Layout from "../components/Layout";
+import "isomorphic-fetch";
+
 export default class extends React.Component {
   render() {
     return (

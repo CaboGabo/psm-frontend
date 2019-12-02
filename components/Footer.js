@@ -17,8 +17,11 @@ export default class Footer extends React.Component {
               text-align: center;
               background: #521751;
               color: white;
-              position: fixed;
+              position: absolute;
               bottom: 0;
+              margin-top: 10px;
+              padding-top: 5px;
+              padding-bottom: 5px;
             }
           `}
         </style>

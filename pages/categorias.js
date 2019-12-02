@@ -1,18 +1,27 @@
 import Layout from "../components/Layout";
+import CategoryList from "../components/CategoryList";
+import Error from "next/error";
 
 export default class extends React.Component {
   static async getInitialProps({ res }) {
     try {
       let req = await fetch("http://localhost:5000/api/categories");
       const categories = await req.json();
-      return { categories };
+      return { categories, statusCode: 200 };
     } catch (e) {
-      return { categories: null, error: e };
+      res.statusCode = 503;
+      console.log(e);
+      return { categories: null, statusCode: 503 };
     }
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, statusCode } = this.props;
+
+    if (statusCode !== 200) {
+      return <Error statusCode={statusCode} />;
+    }
+
     return (
       <React.Fragment>
         <Layout
@@ -21,18 +30,7 @@ export default class extends React.Component {
           description="metadescription"
         >
           <div className="content">
-            <div className="category">Nombre 1</div>
-            <div className="category">Nombre 2</div>
-            <div className="category">Nombre 3</div>
-            <div className="category">Nombre 4</div>
-            <div className="category">Nombre 5</div>
-            <div className="category">Nombre 6</div>
-            <div className="category">Nombre 7</div>
-            {/* {categories.map(category => (
-              <div key={category.id} className="category">
-                {category.name}
-              </div>
-            ))} */}
+            <CategoryList categories={categories} />
           </div>
         </Layout>
 
@@ -43,11 +41,6 @@ export default class extends React.Component {
               display: grid;
               grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
               gap: 15px;
-            }
-
-            .content .category {
-              height: 250px;
-              border: 1px solid black;
             }
           `}
         </style>
