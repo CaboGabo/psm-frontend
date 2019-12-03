@@ -15,7 +15,7 @@ export default class CategoryList extends React.Component {
               <a>
                 <img
                   className="image"
-                  src="static/silla_oficina.jpg"
+                  src="/static/silla_oficina.jpg"
                   alt="Silla oficina"
                 />
                 <div className="name">{category.name}</div>
