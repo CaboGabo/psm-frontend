@@ -1,9 +1,11 @@
 import Error from "next/error";
 import Layout from "../components/Layout";
+import ProductList from "../components/ProductList";
 
 export default class extends React.Component {
   static async getInitialProps({ query, res }) {
     let categorySlug = query.slug;
+    console.log(categorySlug);
     try {
       let reqCategory = await fetch(
         `http://localhost:5000/api/categories/${categorySlug}`
@@ -31,11 +33,28 @@ export default class extends React.Component {
     }
 
     return (
-      <Layout
-        metatitle={category.metatitle}
-        title={category.header}
-        description={category.metadescription}
-      ></Layout>
+      <React.Fragment>
+        <Layout
+          metatitle={category.metatitle}
+          title={category.header}
+          description={category.metadescription}
+        >
+          <div className="content">
+            <ProductList category={category} />
+          </div>
+        </Layout>
+
+        <style jsx>
+          {`
+            .content {
+              margin-left: 10px;
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+              gap: 15px;
+            }
+          `}
+        </style>
+      </React.Fragment>
     );
   }
 }
